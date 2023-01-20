@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+
+std::string convert(const std::string& input) {
+    std::string output;
+    std::unordered_map<char, int> char_count;
+
+    for (char c : input) {
+        char lower_c = std::tolower(c);
+        char_count[lower_c]++;
+    }
+
+    for (char c : input) {
+        char lower_c = std::tolower(c);
+        if (char_count[lower_c] == 1) {
+            output += '(';
+        } else {
+            output += ')';
+        }
+    }
+
+    return output;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << convert(input) << std::endl;
+    return 0;
+}
